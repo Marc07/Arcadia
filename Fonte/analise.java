@@ -5,7 +5,7 @@ class Analise{
 		aux = ";";
 		int i = 0;
 		teste = linha.substring(i,i+1);
-		while((teste.compareTo("aux")!=0 || teste.compareTo("{")!=0) && i<linha.length()){
+		while((teste.compareTo(aux)!=0 && teste.compareTo("{")!=0) && i<linha.length()){
 			if(teste.compareTo(" ")==0 && lim[0].valor==i){
 				lim[0].valor++;
 			}else if(teste.compareTo("	")==0 && lim[0].valor==i){
@@ -19,6 +19,11 @@ class Analise{
 			if(teste.compareTo(")")==0){
 				aux = ";";
 			}
+			if(i>0){
+				if(teste.compareTo("#")==0){
+					i = linha.length()-1;
+				}
+			}
 			i++;
 			if(i<linha.length()){
 				teste = linha.substring(i,i+1);
@@ -26,9 +31,14 @@ class Analise{
 				teste = linha.substring(i,linha.length());
 			}
 		}
-		lim[1].valor=i;
 		if(i==linha.length()){
-			System.out.println("Erro! Caracter de terminação não encontrado");
+			teste = linha.substring(i-1,i);
+			if(teste.compareTo(";")!=0 || teste.compareTo("{")!=0){
+				System.out.println("Erro! Caracter de terminação não encontrado");
+				lim[1].valor = lim[0].valor-1;
+			}
+		}else{
+			lim[1].valor=i+1;
 		}
 		return lim;
 	}

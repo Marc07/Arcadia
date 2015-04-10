@@ -4,9 +4,6 @@ class Interpretador{
 		String teste,aux,comp;
 		aux = "0";
 		int i = 0;
-		i = linha.length();
-		System.out.println("//"+i+"\\");
-		i = 0;
 		teste = linha.substring(i,i+1);
 		while(i<linha.length()){
 			if(teste.compareTo("=")==0){
@@ -73,6 +70,12 @@ class Interpretador{
 			if(teste.compareTo(">")==0){
 				menu[3].status = true;
 				menu[3].indice = i;
+			}
+			if(teste.compareTo("#")==0){
+				for(i=0;i<menu.length;i++){
+					menu[i].setStatus();
+				}
+				return menu;
 			}
 			i++;
 			if(i<linha.length()){
