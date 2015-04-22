@@ -28,26 +28,26 @@ class Declara{
 		int aux;
 		Variavel i;
 		i = new Variavel();
-		String teste,f=null;
+		String teste,var=null;
 		aux = s.length();
 		aux-=1;
 		while(aux>0){
 			teste = s.substring(aux-1,aux);
 			if(teste.compareTo(" ")!=0){
-				if(f==null){
-					f = teste;
+				if(var==null){
+					var = teste;
 				}else{
-					f+=teste;
+					var+=teste;
 				}
 			}else{
-				if(f!=null){
+				if(var!=null){
 					aux = -1;
 				}
 			}
 			aux--;
 		}
-		if(Declara.getVariavel(f,seq)==null){
-			i.setNome(f);
+		if(Declara.getVariavel(var,seq)==null){
+			i.setNome(var);
 			Declara.setVariavel(i,seq);
 			return seq;
 		}else{
