@@ -68,12 +68,6 @@ class Interpretador{
 				menu[3].status = true;
 				menu[3].indice = i;
 			}
-			if(teste.compareTo("#")==0){
-				for(i=0;i<menu.length;i++){
-					menu[i].setStatus();
-				}
-				return menu;
-			}
 			i++;
 			if(i<linha.length()){
 				teste = linha.substring(i,i+1);
