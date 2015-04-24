@@ -1,3 +1,4 @@
+import javax.swing.*;
 class Declara{
 	public static Variavel getVariavel(String nome,Variavel[] seq){
 		int aux;
@@ -52,6 +53,64 @@ class Declara{
 			return seq;
 		}else{
 			return seq;
+		}
+	}
+	
+	public static Variavel[] atribui(String s,Executa menu,Variavel[] seq){
+		int aux;
+		double x;
+		Variavel i;
+		String teste,valor=null,var=null;
+		aux = menu.indice;
+		aux++;
+		while(aux<s.length()){
+			teste = s.substring(aux,aux+1);
+			if(teste.compareTo(" ")!=0&&teste.compareTo(";")!=0){
+				if(valor==null){
+					valor = teste;
+				}else{
+					valor+=teste;
+				}
+			}else{
+				if(valor!=null){
+					aux = s.length();
+				}
+			}
+			aux++;
+		}
+		aux = menu.indice;
+		aux-=1;
+		while(aux>0){
+			teste = s.substring(aux-1,aux);
+			if(teste.compareTo(" ")!=0){
+				if(var==null){
+					var = teste;
+				}else{
+					var+=teste;
+				}
+			}else{
+				if(var!=null){
+					aux = -1;
+				}
+			}
+			aux--;
+		}
+		i = Declara.getVariavel(var,seq);
+		if(i!=null){
+			x = Double.parseDouble(valor);
+			i.valor = x;
+			return seq;
+		}else{
+			seq = Declara.insere(var,seq);
+			i = Declara.getVariavel(var,seq);
+			if(i!=null){
+				x = Double.parseDouble(valor);
+				i.valor = x;
+				return seq;
+			}else{
+				JOptionPane.showMessageDialog (null, "Não é possivel inserir mais variavies", "Erro!", JOptionPane.ERROR_MESSAGE);
+				return seq;
+			}
 		}
 	}
 };

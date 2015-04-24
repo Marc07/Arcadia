@@ -19,11 +19,6 @@ class Analise{
 			if(teste.compareTo(")")==0){
 				aux = ";";
 			}
-			if(i>0){
-				if(teste.compareTo("#")==0){
-					i = linha.length()-1;
-				}
-			}
 			i++;
 			if(i<linha.length()){
 				teste = linha.substring(i,i+1);
@@ -34,7 +29,6 @@ class Analise{
 		if(i==linha.length()){
 			teste = linha.substring(i-1,i);
 			if(teste.compareTo(";")!=0 || teste.compareTo("{")!=0){
-				System.out.println("Erro! Caracter de terminação não encontrado");
 				lim[1].valor = lim[0].valor-1;
 			}
 		}else{

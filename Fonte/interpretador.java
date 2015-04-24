@@ -8,10 +8,7 @@ class Interpretador{
 		while(i<linha.length()){
 			if(teste.compareTo("=")==0){
 				aux = linha.substring(i+1,i+2);
-				System.out.println("//"+i+"\\");
 				comp = linha.substring(i-1,i);
-				System.out.println("//"+aux+"\\");
-				System.out.println("//"+comp+"\\");
 				if(aux.compareTo("=")==0||comp.compareTo("!")==0){
 					menu[3].status = true;
 					menu[3].indice = i;
@@ -92,6 +89,9 @@ class Interpretador{
 			}
 		}
 		if(aux.compareTo("00000")==0){
+			menu[0].status = true;
+		}
+		if(linha.contains("vars")==true){
 			menu[0].status = true;
 		}
 		return menu;
