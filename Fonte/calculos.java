@@ -19,4 +19,40 @@ class Calculos{
 		resul = a * b;
 		return resul;
 	}
+	public static boolean diferente(double a,double b){
+		if(a!=b){
+			return true;
+		}
+		return false;
+	}
+	public static boolean igual(double a,double b){
+		if(a==b){
+			return true;
+		}
+		return false;
+	}
+	public static boolean menorigual(double a,double b){
+		if(a<=b){
+			return true;
+		}
+		return false;
+	}
+	public static boolean maiorigual(double a,double b){
+		if(a>=b){
+			return true;
+		}
+		return false;
+	}
+	public static boolean menor(double a,double b){
+		if(a<b){
+			return true;
+		}
+		return false;
+	}
+	public static boolean maior(double a,double b){
+		if(a>b){
+			return true;
+		}
+		return false;
+	}
 };

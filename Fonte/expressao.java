@@ -7,13 +7,13 @@ class Expressao{
 		z = new Variavel();
 		x = y = 1.0;
 		String teste,valor = null,var=  null;
-		aux = menu[2].indice-1;
+		aux = menu[2].indice;
 		i = menu[1].indice+1;
 		var = Agiliza.crescente(s,i,aux);
-		var = Agiliza.testanum(var,0,var.length());
+		var = Agiliza.testanum(var);
 		if(var==null){
 			var = Agiliza.crescente(s,i,aux);
-			var = Agiliza.testanome(var,0);
+			var = Agiliza.testanome(var);
 			if(var==null){
 				var = Agiliza.crescente(s,i,aux);
 			}
@@ -23,6 +23,8 @@ class Expressao{
 			}else{
 				valor = "Expressão Ilegal na Linha"+"\n"+s+"\n"+"=> "+var;
 				JOptionPane.showMessageDialog (null, valor, "Erro!", JOptionPane.ERROR_MESSAGE);
+				var = null;
+				return var;
 			}
 		}else{
 			x = Double.parseDouble(var);
@@ -30,10 +32,10 @@ class Expressao{
 		i = menu[2].indice+1;
 		aux = s.length()-1;
 		var = Agiliza.crescente(s,i,aux);
-		var = Agiliza.testanum(var,0,var.length());
+		var = Agiliza.testanum(var);
 		if(var==null){
 			var = Agiliza.crescente(s,i,aux);
-			var = Agiliza.testanome(var,0);
+			var = Agiliza.testanome(var);
 			if(var==null){
 				var = Agiliza.crescente(s,i,aux);
 			}

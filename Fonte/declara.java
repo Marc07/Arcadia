@@ -33,11 +33,11 @@ class Declara{
 		aux = s.length();
 		aux-=1;
 		var = Agiliza.decrescente(s,0,aux);
-		var = Agiliza.testanome(var,0);
+		var = Agiliza.testanome(var);
 		if(var==null){
 			var = "Declaração Ilegal de Variavel na Linha"+"\n"+linha;
 			JOptionPane.showMessageDialog (null, var, "Erro!", JOptionPane.ERROR_MESSAGE);
-			return seq;
+			return null;
 		}else if(Declara.getVariavel(var,seq)==null){
 			i.setNome(var);
 			Declara.setVariavel(i,seq);
@@ -58,20 +58,20 @@ class Declara{
 		aux = menu.indice;
 		aux-=1;
 		var = Agiliza.decrescente(s,0,aux);
-		var = Agiliza.testanome(var,0);
+		var = Agiliza.testanome(var);
 		if(var==null){
 			var = "Declaração Ilegal de Variavel na Linha"+"\n"+s;
 			JOptionPane.showMessageDialog (null, var, "Erro!", JOptionPane.ERROR_MESSAGE);
-			return seq;
+			return null;
 		}
 		i = Declara.getVariavel(var,seq);
 		teste = valor;
 		y = Declara.getVariavel(valor,seq);
-		valor = Agiliza.testanum(valor,0,valor.length());
+		valor = Agiliza.testanum(valor);
 		if(valor==null&&y==null){
 			valor = "Atribuição Ilegal de Valor na Linha"+"\n"+s;
 			JOptionPane.showMessageDialog (null, valor, "Erro!", JOptionPane.ERROR_MESSAGE);
-			return seq;
+			return null;
 		}
 		if(i!=null&&y==null&&valor!=null){
 			x = Double.parseDouble(valor);
@@ -86,7 +86,7 @@ class Declara{
 				return seq;
 			}else{
 				JOptionPane.showMessageDialog (null, "Não é Possivel Inserir Mais Variavies", "Erro!", JOptionPane.ERROR_MESSAGE);
-				return seq;
+				return null;
 			}
 		}else if(i!=null&&y!=null){
 			i.valor = y.valor;
@@ -99,7 +99,7 @@ class Declara{
 				return seq;
 			}else{
 				JOptionPane.showMessageDialog (null, "Não é Possivel Inserir Mais Variavies", "Erro!", JOptionPane.ERROR_MESSAGE);
-				return seq;
+				return null;
 			}
 		}
 		return seq;

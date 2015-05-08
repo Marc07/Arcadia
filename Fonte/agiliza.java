@@ -1,4 +1,26 @@
+import javax.swing.*;
 class Agiliza{
+	public static int percore(String[] texto,int nlinhas){
+		int aux,chave = 1;
+		String linha,ex;
+		aux = nlinhas;
+		while(chave>0){
+			aux++;
+			if(aux<texto.length){
+				linha = texto[aux];
+			}else{
+				JOptionPane.showMessageDialog (null, "Caracter de Terminação Não Encontrado\n=> }", "Erro!", JOptionPane.ERROR_MESSAGE);
+				return -1;
+			}
+			if(linha.contains("{")==true){
+				chave++;
+			}
+			if(linha.contains("}")==true){
+				chave--;
+			}
+		}
+		return aux;
+	}
 	public static String crescente(String s,int i,int aux){
 		String teste,var = null;
 		while(i<aux){
@@ -18,8 +40,9 @@ class Agiliza{
 		}
 		return var;
 	}
-	public static String testanum(String s,int i,int aux){
+	public static String testanum(String s){
 		String teste,var = null;
+		int i = 0,aux = s.length();
 		while(i<aux){
 			teste = s.substring(i,i+1);
 			if(((teste.charAt(0) >= 'A') && (teste.charAt(0) <='Z')) || ((teste.charAt(0) >= 'a') && (teste.charAt(0) <='z'))){
@@ -29,8 +52,9 @@ class Agiliza{
 		}
 		return s;
 	}
-	public static String testanome(String s,int i){
+	public static String testanome(String s){
 		String teste,var = null;
+		int i = 0;
 		teste = s.substring(i,i+1);
 		if(((teste.charAt(0) >= '0') && (teste.charAt(0) <='9'))){
 			return var;
@@ -43,7 +67,9 @@ class Agiliza{
 		while(aux>i){
 			teste = s.substring(aux-1,aux);
 			if(teste.compareTo(" ")!=0){
-				if(var==null){
+				if(teste.compareTo("\n")==0){
+					
+				}else if(var==null){
 					var = teste;
 				}else{
 					teste+=var;

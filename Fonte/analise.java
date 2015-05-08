@@ -1,14 +1,20 @@
 class Analise{
-
 	public static Variavelimite[] frase(String linha,Variavelimite[] lim){
 		String teste,aux;
 		aux = ";";
 		int i = 0;
+		lim[0].valor=i;
+		lim[1].valor=i;
 		teste = linha.substring(i,i+1);
-		while((teste.compareTo(aux)!=0 && teste.compareTo("{")!=0) && i<linha.length()){
-			if(teste.compareTo(" ")==0 && lim[0].valor==i){
+		if(teste.compareTo("}")==0){
+			lim[0].valor=i;
+			lim[1].valor=i+1;
+			return lim;
+		}
+		while((teste.compareTo(aux)!=0 && teste.compareTo("{")!=0) &&i<linha.length()&&teste.compareTo("}")!=0){
+			if(teste.compareTo("	")==0 && lim[0].valor==i){
 				lim[0].valor++;
-			}else if(teste.compareTo("	")==0 && lim[0].valor==i){
+			}else if(teste.compareTo(" ")==0 && lim[0].valor==i){
 				lim[0].valor++;
 			}else if(teste.compareTo("_")==0 && lim[0].valor==i){
 				lim[0].valor++;
@@ -28,7 +34,7 @@ class Analise{
 		}
 		if(i==linha.length()){
 			teste = linha.substring(i-1,i);
-			if(teste.compareTo(";")!=0 || teste.compareTo("{")!=0){
+			if(teste.compareTo(";")!=0 || teste.compareTo("{")!=0||teste.compareTo("}")!=0){
 				lim[1].valor = lim[0].valor-1;
 			}
 		}else{

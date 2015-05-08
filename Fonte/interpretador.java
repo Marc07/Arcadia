@@ -1,26 +1,28 @@
 class Interpretador{
 	
 	public static Executa[] interpreta(String linha,Executa[] menu){
-		String teste,aux,comp;
-		aux = "0";
+		String teste,next,prev;
+		next = "0";
 		int i = 0;
 		teste = linha.substring(i,i+1);
 		while(i<linha.length()){
 			if(teste.compareTo("=")==0){
-				aux = linha.substring(i+1,i+2);
-				comp = linha.substring(i-1,i);
-				if(aux.compareTo("=")==0||comp.compareTo("!")==0){
+				next = linha.substring(i+1,i+2);
+				prev = linha.substring(i-1,i);
+				if(prev.compareTo("!")==0){
 					menu[3].status = true;
-					menu[3].indice = i;
-				}else if(aux.compareTo("=")!=0&&comp.compareTo("=")!=0){
+				}else if(prev.compareTo("<")==0){
+					menu[3].status = true;
+				}else if(prev.compareTo(">")==0){;
+					menu[3].status = true;
+				}else if(next.compareTo("=")!=0&&prev.compareTo("=")!=0){
 					menu[1].status = true;
 					menu[1].indice = i;
-				}else if(comp.compareTo("<")==0){
+				}else if(next.compareTo("=")==0||prev.compareTo("=")==0){
 					menu[3].status = true;
-					menu[3].indice = i;
-				}else if(comp.compareTo(">")==0){
-					menu[3].status = true;
-					menu[3].indice = i;
+					if(menu[3].indice == 0){
+						menu[3].indice = i;
+					}
 				}
 			}
 			if(teste.compareTo("+")==0){
@@ -40,22 +42,22 @@ class Interpretador{
 				menu[2].indice = i;
 			}
 			if(teste.compareTo("!")==0){
-				aux = linha.substring(i+1,i+2);
-				if(aux.compareTo("=")==0){
+				next = linha.substring(i+1,i+2);
+				if(next.compareTo("=")==0){
 					menu[3].status = true;
 					menu[3].indice = i;
 				}
 			}
 			if(teste.compareTo(">")==0){
-				aux = linha.substring(i+1,i+2);
-				if(aux.compareTo("=")==0){
+				next = linha.substring(i+1,i+2);
+				if(next.compareTo("=")==0){
 					menu[3].status = true;
 					menu[3].indice = i;
 				}
 			}
 			if(teste.compareTo("<")==0){
-				aux = linha.substring(i+1,i+2);
-				if(aux.compareTo("=")==0){
+				next = linha.substring(i+1,i+2);
+				if(next.compareTo("=")==0){
 					menu[3].status = true;
 					menu[3].indice = i;
 				}
@@ -74,19 +76,14 @@ class Interpretador{
 			}
 			
 		}
-		aux = "0";
-		for(i=0;i<menu.length;i++){
-			if(menu[i].status==true){
-				aux = aux+"1";
-			}else {
-				aux = aux+"0";
-			}
-		}
-		if(aux.compareTo("00000")==0){
-			menu[0].status = true;
-		}
 		if(linha.contains("vars")==true){
 			menu[0].status = true;
+		}
+		if(linha.contains("select")==true){
+			menu[5].status = true;
+		}
+		if(linha.contains("loop")==true){
+			menu[4].status = true;
 		}
 		return menu;
 	}
