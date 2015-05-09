@@ -30,6 +30,9 @@ class Agiliza{
 		while(i<aux){
 			teste = s.substring(i,i+1);
 			if(teste.compareTo(" ")!=0){
+				if(teste.compareTo(";")==0){
+					return var;
+				}
 				if(var==null){
 					var = teste;
 				}else{
@@ -39,6 +42,9 @@ class Agiliza{
 				if(var!=null){
 					i = aux;
 				}
+			}
+			if(teste.compareTo(".")==0){
+				aux++;
 			}
 			i++;
 		}
