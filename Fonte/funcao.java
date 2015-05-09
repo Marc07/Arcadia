@@ -1,6 +1,9 @@
+/*Marcelo Norberto
+marcelonorberto07@gmail.com
+Esta classe implementa métodos de laço e seleção de fluxo*/
 import javax.swing.*;
 class Funcao{
-	public static Variavel[] laco(int i,int f,String[] texto,Variavel[] vars,Executa inicio){
+	public static Variavel[] repeticao(int i,int f,String[] texto,Variavel[] vars,Executa inicio){
 		int aux,nlinhas,chave;
 		int laco=1,se;
 		Variavelimite[] limite;
@@ -66,7 +69,7 @@ class Funcao{
 							laco = Compare.compara(teste,menu[3],vars);
 							chave = Agiliza.percore(texto,nlinhas);
 							if(laco==1&&chave!=-1){
-								vars = Funcao.laco(nlinhas,chave,texto,vars,menu[3]);
+								vars = Funcao.repeticao(nlinhas,chave,texto,vars,menu[3]);
 								nlinhas = chave;
 								if(vars==null){
 									return null;
@@ -169,7 +172,7 @@ class Funcao{
 						laco = Compare.compara(teste,menu[3],vars);
 						chave = Agiliza.percore(texto,nlinhas);
 						if(laco==1&&chave!=-1){
-							vars = Funcao.laco(nlinhas,chave,texto,vars,menu[3]);
+							vars = Funcao.repeticao(nlinhas,chave,texto,vars,menu[3]);
 							nlinhas = chave;
 							if(vars==null){
 								return null;

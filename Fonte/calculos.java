@@ -1,3 +1,6 @@
+/*Marcelo Norberto
+marcelonorberto07@gmail.com
+Esta classe implementa métodos matemáticos*/
 class Calculos{
 	public static double soma(double a,double b){
 		double resul;

@@ -1,3 +1,6 @@
+/*Marcelo Norberto
+marcelonorberto07@gmail.com
+Esta classe é usada para o programa principal saber quais métodos serão usados para interpretar cada linha do código fonte*/
 class Executa{
 	private String nome;
 	public boolean status;

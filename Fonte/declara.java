@@ -1,3 +1,6 @@
+/*Marcelo Norberto
+marcelonorberto07@gmail.com
+Esta classe manipula a variável do programa,inserindo e atribuindo valores a novas variáveis*/
 import javax.swing.*;
 class Declara{
 	public static Variavel getVariavel(String nome,Variavel[] seq){

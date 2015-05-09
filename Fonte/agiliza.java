@@ -1,3 +1,7 @@
+/*Marcelo Norberto
+marcelonorberto07@gmail.com
+Esta classe reduz a repetição de códigos, além de separar uma String
+em partes menores e testa se um nome de variável é valido*/
 import javax.swing.*;
 class Agiliza{
 	public static int percore(String[] texto,int nlinhas){
@@ -41,23 +45,23 @@ class Agiliza{
 		return var;
 	}
 	public static String testanum(String s){
-		String teste,var = null;
+		String teste;
 		int i = 0,aux = s.length();
 		while(i<aux){
 			teste = s.substring(i,i+1);
 			if(((teste.charAt(0) >= 'A') && (teste.charAt(0) <='Z')) || ((teste.charAt(0) >= 'a') && (teste.charAt(0) <='z'))){
-				return var;
+				return null;
 			}
 			i++;
 		}
 		return s;
 	}
 	public static String testanome(String s){
-		String teste,var = null;
+		String teste;
 		int i = 0;
 		teste = s.substring(i,i+1);
 		if(((teste.charAt(0) >= '0') && (teste.charAt(0) <='9'))){
-			return var;
+			return null;
 		}else{
 			return s;
 		}

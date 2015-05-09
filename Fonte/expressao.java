@@ -1,3 +1,6 @@
+/*Marcelo Norberto
+marcelonorberto07@gmail.com
+Esta classe analise linhas do código fonte que contenham expressões matemáticas*/
 import javax.swing.*;
 class Expressao{
 	public static String opera(String s,Executa[] menu,Variavel[] seq){

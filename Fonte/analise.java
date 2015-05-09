@@ -1,3 +1,7 @@
+/*Marcelo Norberto
+marcelonorberto07@gmail.com
+Esta classe elimina espaços antes do primeiro caractere alfanumérico escrito na String linha,
+Também testa se a linha do código tem ou não o caractere de terminação*/
 class Analise{
 	public static Variavelimite[] frase(String linha,Variavelimite[] lim){
 		String teste,aux;

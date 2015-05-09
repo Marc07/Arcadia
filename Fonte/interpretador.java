@@ -1,5 +1,7 @@
+/*Marcelo Norberto
+marcelonorberto07@gmail.com
+Esta classe interpreta cada linha do código fonte,seta valores na respectiva variável menu*/
 class Interpretador{
-	
 	public static Executa[] interpreta(String linha,Executa[] menu){
 		String teste,next,prev;
 		next = "0";

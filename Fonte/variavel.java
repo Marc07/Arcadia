@@ -1,3 +1,6 @@
+/*Marcelo Norberto
+marcelonorberto07@gmail.com
+Esta classe implementa a Variavel principal do programa*/
 class Variavel{
 	private String nome;
 	public double valor;
