@@ -1,0 +1,18 @@
+vars a = 2.3;
+vars b;
+b = a + 1;
+select(a < b){
+	vars c = b*2;
+	loop(c>2){
+	b = 7;
+		select(b<3){
+		b = b - 1;
+		screen(o valor de b é : = b);
+		}
+	c = c - 1;
+	screen(o valor de c é : = c);
+	}
+	a = a+1;
+	screen(o valor de a é : = a);
+}
+a = a + 2 - 1;

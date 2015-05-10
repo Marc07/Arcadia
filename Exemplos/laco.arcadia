@@ -1,0 +1,8 @@
+vars a = 2.3;
+vars b;
+b = a + 1;
+vars c = b*2;
+loop(c>2){
+ 	c = c - 1;
+ 	screen(c);
+}

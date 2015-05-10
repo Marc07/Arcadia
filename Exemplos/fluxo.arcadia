@@ -1,0 +1,7 @@
+vars a = 2.3;
+vars b;
+b = a + 1;
+select(a < b){
+	vars c = b*2;
+ 	a = a+1;
+}

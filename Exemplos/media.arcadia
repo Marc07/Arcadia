@@ -1,0 +1,13 @@
+vars a = 0;
+vars b = 0;
+vars div = 0;
+screin(a = digite o valor inicial);
+screin(b = digite o valor final);
+vars media = 0;
+loop(a<b){
+	media = media + a;
+	div = div + 1; 
+	a = a + 1;
+}
+media = media/div;
+screen(a media é : = media);
