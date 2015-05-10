@@ -1,16 +1,17 @@
-/*Marcelo Norberto
-marcelonorberto07@gmail.com
-Esta classe interpreta cada linha do código fonte,seta valores na respectiva variável menu*/
 class Interpretador{
+	
 	public static Executa[] interpreta(String linha,Executa[] menu){
 		String teste,next,prev;
 		next = "0";
-		int i = 0;
+		int i = 0,aux=-1;
 		teste = linha.substring(i,i+1);
 		while(i<linha.length()){
 			if(teste.compareTo("=")==0){
 				next = linha.substring(i+1,i+2);
 				prev = linha.substring(i-1,i);
+				if(aux==-1){
+					aux = i;
+				}
 				if(prev.compareTo("!")==0){
 					menu[3].status = true;
 				}else if(prev.compareTo("<")==0){
@@ -86,6 +87,17 @@ class Interpretador{
 		}
 		if(linha.contains("loop")==true){
 			menu[4].status = true;
+		}
+		if(linha.contains("screen")==true){
+			menu[1].status = false;
+			menu[6].status = true;
+		}
+		if(linha.contains("screin")==true){
+			menu[1].status = false;
+			if(menu[6].indice!=aux){
+				menu[6].indice = aux;
+			}
+			menu[6].status = true;
 		}
 		return menu;
 	}
