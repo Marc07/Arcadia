@@ -1,6 +1,6 @@
 /*Marcelo Norberto
 marcelonorberto07@gmail.com
-Esta classe implementa métodos de entrada e saidao*/
+Esta classe implementa métodos de entrada e saida*/
 import javax.swing.*;
 class Tela{
 	public static Variavel[] dialogbox(String linha,Executa separa,Variavel[] seq){
