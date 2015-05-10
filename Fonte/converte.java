@@ -10,6 +10,9 @@ class Converte{
 		File txt;
 		if(args.length==0){
 			teste = JOptionPane.showInputDialog ("Nenhum Arquivo Encontrado"+"\n"+"Digite o Caminho Para o Arquivo a Ser Executado");
+			if(teste==null){
+				return null;
+			}
 			txt = new File(teste);
 		}else{
 			txt = new File(args[0]);

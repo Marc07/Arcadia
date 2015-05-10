@@ -1,5 +1,5 @@
 import javax.swing.*;
-class Main{
+class Arcadia{
 	public static void main (String args[]){
 		int se,laco, i,nlinhas = 0;
 		Variavelimite[] limite;
