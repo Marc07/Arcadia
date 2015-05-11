@@ -7,9 +7,6 @@ class Expressao{
 		double x,y,res;
 		int i,aux;
 		Variavel z;
-		if(s.contains("media")==true){
-			System.out.println("Entrada da Expressão "+s);
-		}
 		z = new Variavel();
 		String teste,valor = null,var=  null;
 		aux = menu[2].indice;
@@ -82,9 +79,6 @@ class Expressao{
 		}
 		valor = s.substring(0,menu[1].indice+1);
 		valor+=res;
-		if(s.contains("media")==true){
-			System.out.println("Retorno da Expressão "+valor);
-		}
 		return valor;
 	}
 };

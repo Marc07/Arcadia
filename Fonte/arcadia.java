@@ -37,10 +37,18 @@ class Arcadia{
 				teste = linha.substring(limite[0].valor,limite[1].valor);
 				menu = Interpretador.interpreta(teste,menu);
 				if(menu[0].status){
-					teste = teste.substring(0,menu[1].indice);
-					vars = Declara.insere(teste,vars,linha);
-					if(vars==null){
-						return;
+					if(menu[1].status){
+						teste = teste.substring(0,menu[1].indice);
+						vars = Declara.insere(teste,vars,linha);
+						if(vars==null){
+							return;
+						}
+					}else{
+						teste = linha.substring(limite[0].valor,linha.length());
+						vars = Declara.insere(teste,vars,linha);
+						if(vars==null){
+							return;
+						}
 					}
 				}
 				if(menu[1].status){
@@ -87,6 +95,9 @@ class Arcadia{
 						if(se==1){
 							vars = Funcao.selecao(nlinhas,i,arquivo,vars);
 							nlinhas = i;
+							if(vars==null){
+								return;
+							}
 						}else if(se==0){
 							nlinhas = i;
 						}else{
@@ -109,6 +120,7 @@ class Arcadia{
 			nlinhas++;
 			for(i=0;i<menu.length;i++){
 				menu[i].setStatus();
+				menu[i].indice = 0;
 			}
 			if(nlinhas<arquivo.length){
 				linha = arquivo[nlinhas];

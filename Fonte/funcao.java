@@ -37,10 +37,18 @@ class Funcao{
 					teste = linha.substring(limite[0].valor,limite[1].valor);
 					menu = Interpretador.interpreta(teste,menu);
 					if(menu[0].status){
-						teste = teste.substring(0,menu[1].indice);
-						vars = Declara.insere(teste,vars,linha);
-						if(vars==null){
-							return vars;
+						if(menu[1].status){
+							teste = teste.substring(0,menu[1].indice);
+							vars = Declara.insere(teste,vars,linha);
+							if(vars==null){
+								return null;
+							}
+						}else{
+							teste = linha.substring(limite[0].valor,linha.length());
+							vars = Declara.insere(teste,vars,linha);
+							if(vars==null){
+								return null;
+							}
 						}
 					}
 					if(menu[1].status){
@@ -50,7 +58,7 @@ class Funcao{
 							if(teste!=null){
 								vars = Declara.atribui(teste,menu[1],vars);
 								if(vars==null){
-									return vars;
+									return null;
 								}
 							}else{
 								return null;
@@ -59,7 +67,7 @@ class Funcao{
 							teste = linha.substring(limite[0].valor,limite[1].valor);
 							vars = Declara.atribui(teste,menu[1],vars);
 							if(vars==null){
-								return vars;
+								return null;
 							}
 						}
 					}
@@ -102,6 +110,7 @@ class Funcao{
 				nlinhas++;
 				for(int count=0;count<menu.length;count++){
 					menu[count].setStatus();
+					menu[count].indice = 0;
 				}
 				if(nlinhas<f){
 					linha = texto[nlinhas];
@@ -147,10 +156,18 @@ class Funcao{
 				teste = linha.substring(limite[0].valor,limite[1].valor);
 				menu = Interpretador.interpreta(teste,menu);
 				if(menu[0].status){
-					teste = teste.substring(0,menu[1].indice);
-					vars = Declara.insere(teste,vars,linha);
-					if(vars==null){
-						return vars;
+					if(menu[1].status){
+						teste = teste.substring(0,menu[1].indice);
+						vars = Declara.insere(teste,vars,linha);
+						if(vars==null){
+							return null;
+						}
+					}else{
+						teste = linha.substring(limite[0].valor,linha.length());
+						vars = Declara.insere(teste,vars,linha);
+						if(vars==null){
+							return null;
+						}
 					}
 				}
 				if(menu[1].status){
@@ -160,7 +177,7 @@ class Funcao{
 						if(teste!=null){
 							vars = Declara.atribui(teste,menu[1],vars);
 							if(vars==null){
-								return vars;
+								return null;
 							}
 						}else{
 							return null;
@@ -169,7 +186,7 @@ class Funcao{
 						teste = linha.substring(limite[0].valor,limite[1].valor);
 						vars = Declara.atribui(teste,menu[1],vars);
 						if(vars==null){
-							return vars;
+							return null;
 						}
 					}
 				}
@@ -215,6 +232,7 @@ class Funcao{
 			nlinhas++;
 			for(int count=0;count<menu.length;count++){
 				menu[count].setStatus();
+				menu[count].indice = 0;
 			}
 			if(nlinhas<f){
 				linha = texto[nlinhas];

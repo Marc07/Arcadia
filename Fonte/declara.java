@@ -65,6 +65,7 @@ class Declara{
 			aux-=1;
 		}
 		var = Agiliza.decrescente(s,0,aux);
+		teste = var;
 		var = Agiliza.testanome(var);
 		if(var==null){
 			var = "Declaração Ilegal de Variavel na Linha"+"\n"+s;
@@ -72,7 +73,6 @@ class Declara{
 			return null;
 		}
 		i = Declara.getVariavel(var,seq);
-		teste = valor;
 		y = Declara.getVariavel(valor,seq);
 		valor = Agiliza.testanum(valor);
 		if(valor==null&&y==null){
@@ -80,34 +80,17 @@ class Declara{
 			JOptionPane.showMessageDialog (null, valor, "Erro!", JOptionPane.ERROR_MESSAGE);
 			return null;
 		}
-		if(i!=null&&y==null&&valor!=null){
+		if(i!=null&&valor!=null){
 			x = Double.parseDouble(valor);
 			i.valor = x;
 			return seq;
-		}else if(i==null&&y==null&&valor!=null){
-			seq = Declara.insere(var,seq,s);
-			i = Declara.getVariavel(var,seq);
-			if(i!=null){
-				x = Double.parseDouble(valor);
-				i.valor = x;
-				return seq;
-			}else{
-				JOptionPane.showMessageDialog (null, "Não é Possivel Inserir Mais Variavies", "Erro!", JOptionPane.ERROR_MESSAGE);
-				return null;
-			}
 		}else if(i!=null&&y!=null){
 			i.valor = y.valor;
 			return seq;
-		}else if(i==null&&y!=null){
-			seq = Declara.insere(var,seq,s);
-			i = Declara.getVariavel(var,seq);
-			if(i!=null){
-				i.valor = y.valor;
-				return seq;
-			}else{
-				JOptionPane.showMessageDialog (null, "Não é Possivel Inserir Mais Variavies", "Erro!", JOptionPane.ERROR_MESSAGE);
-				return null;
-			}
+		}else if(i==null){
+			var = "Variavel Não Encontrada!\n=>"+teste;
+			JOptionPane.showMessageDialog (null, var, "Erro!", JOptionPane.ERROR_MESSAGE);
+			return null;
 		}
 		return seq;
 	}

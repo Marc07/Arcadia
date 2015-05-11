@@ -4,22 +4,47 @@ Esta classe implementa métodos de entrada e saida*/
 import javax.swing.*;
 class Tela{
 	public static Variavel[] dialogbox(String linha,Executa separa,Variavel[] seq){
-		int i,fim;
-		String teste,var=null,mostra,valor;
+		int i,end = 0,fim;
+		String teste,var=null,mostra = "",valor;
 		Variavel p;
 		if(linha.contains("screen")==true){
 			i = separa.indice;
-			teste = linha.substring(i-1,i);
-			while(teste.compareTo("(")!=0){
-				i--;
-				if(i<0){
+			if(i<=0){
+				i = linha.length();
+				teste = linha.substring(i-1,i);
+				while(teste.compareTo("(")!=0){
+					i--;
+					if(teste.compareTo(")")==0){
+						end = i;
+					}
+					if(i<0){
+						teste = "A Função Não Esta Bem Definida\n=>"+linha;
+						JOptionPane.showMessageDialog (null, teste, "Erro!", JOptionPane.ERROR_MESSAGE);
+						return null;
+					}
+					teste = linha.substring(i-1,i);
+				}
+				separa.indice = i;
+				if(end==0){
 					teste = "A Função Não Esta Bem Definida\n=>"+linha;
 					JOptionPane.showMessageDialog (null, teste, "Erro!", JOptionPane.ERROR_MESSAGE);
 					return null;
 				}
+				mostra = linha.substring(i,end);
+				
+			}else{
 				teste = linha.substring(i-1,i);
+				while(teste.compareTo("(")!=0){
+					i--;
+					if(i<0){
+						teste = "A Função Não Esta Bem Definida\n=>"+linha;
+						JOptionPane.showMessageDialog (null, teste, "Erro!", JOptionPane.ERROR_MESSAGE);
+						return null;
+					}
+					teste = linha.substring(i-1,i);
+				}
+				mostra = linha.substring(i,separa.indice);
 			}
-			mostra = linha.substring(i,separa.indice);
 			i = separa.indice;
 			teste = linha.substring(i,i+1);
 			while(teste.compareTo(")")!=0&&i<linha.length()){
