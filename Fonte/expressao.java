@@ -7,8 +7,10 @@ class Expressao{
 		double x,y,res;
 		int i,aux;
 		Variavel z;
+		if(s.contains("media")==true){
+			System.out.println("Entrada da Expressão "+s);
+		}
 		z = new Variavel();
-		x = y = 1.0;
 		String teste,valor = null,var=  null;
 		aux = menu[2].indice;
 		i = menu[1].indice+1;
@@ -44,7 +46,7 @@ class Expressao{
 			}
 			z = Declara.getVariavel(var,seq);
 			if(z!=null){
-				x = z.valor;
+				y = z.valor;
 			}else{
 				valor = "Expressão Ilegal na Linha"+"\n"+s+"\n"+"=> "+var;
 				JOptionPane.showMessageDialog (null, valor, "Erro!", JOptionPane.ERROR_MESSAGE);
@@ -61,6 +63,12 @@ class Expressao{
 		}else if(var.compareTo("-")==0){
 			res = Calculos.subt(x,y);
 		}else if(var.compareTo("/")==0){
+			if(x==0||y==0){
+				valor = "Expressão Ilegal na Linha"+"\n"+s+"\nTentativa de Efetuar Divisão Por ZERO";
+				JOptionPane.showMessageDialog (null, valor, "Erro!", JOptionPane.ERROR_MESSAGE);
+				var = null;
+				return var;
+			}
 			res = Calculos.divi(x,y);
 		}else if(var.compareTo("*")==0){
 			res = Calculos.mult(x,y);
@@ -74,6 +82,9 @@ class Expressao{
 		}
 		valor = s.substring(0,menu[1].indice+1);
 		valor+=res;
+		if(s.contains("media")==true){
+			System.out.println("Retorno da Expressão "+valor);
+		}
 		return valor;
 	}
 };

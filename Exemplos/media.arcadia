@@ -4,7 +4,7 @@ vars div = 0;
 screin(a = digite o valor inicial);
 screin(b = digite o valor final);
 vars media = 0;
-loop(a<b){
+loop(a<=b){
 	media = media + a;
 	div = div + 1; 
 	a = a + 1;
