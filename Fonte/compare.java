@@ -76,42 +76,42 @@ class Compare{
 			}
 		}else{
 		}
-		if(linha.contains("==")){
+		if(linha.contains("==")==true){
 			status = Calculos.igual(x,y);
 			if(status){
 				return 1;
 			}else{
 				return 0;
 			}
-		}else if(linha.contains("!=")){
+		}else if(linha.contains("!=")==true){
 			status = Calculos.diferente(x,y);
 			if(status){
 				return 1;
 			}else{
 				return 0;
 			}
-		}else if(linha.contains("<=")){
+		}else if(linha.contains("<=")==true){
 			status = Calculos.menorigual(x,y);
 			if(status){
 				return 1;
 			}else{
 				return 0;
 			}
-		}else if(linha.contains(">=")){
+		}else if(linha.contains(">=")==true){
 			status = Calculos.maiorigual(x,y);
 			if(status){
 				return 1;
 			}else{
 				return 0;
 			}
-		}else if(linha.contains("<")){
+		}else if(linha.contains("<")==true){
 			status = Calculos.menor(x,y);
 			if(status){
 				return 1;
 			}else{
 				return 0;
 			}
-		}else if(linha.contains(">")){
+		}else if(linha.contains(">")==true){
 			status = Calculos.maior(x,y);
 			if(status){
 				return 1;

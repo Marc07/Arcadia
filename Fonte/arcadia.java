@@ -1,7 +1,7 @@
 import javax.swing.*;
 class Arcadia{
 	public static void main (String args[]){
-		int se,laco, i,nlinhas = 0;
+		int se=0,laco, i,nlinhas = 0;
 		Variavelimite[] limite;
 		limite = new Variavelimite[2];
 		limite[0] = new Variavelimite();

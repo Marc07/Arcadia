@@ -5,7 +5,7 @@ import javax.swing.*;
 class Funcao{
 	public static Variavel[] repeticao(int i,int f,String[] texto,Variavel[] vars,Executa inicio){
 		int aux,nlinhas,chave;
-		int laco=1,se;
+		int laco=1,se=0;
 		Variavelimite[] limite;
 		limite = new Variavelimite[2];
 		limite[0] = new Variavelimite();
@@ -93,7 +93,13 @@ class Funcao{
 							se = Compare.compara(teste,menu[3],vars);
 							chave = Agiliza.percore(texto,nlinhas);
 							if(se==1){
+								vars = Funcao.selecao(nlinhas,chave,texto,vars);
+								nlinhas = chave;
+								if(vars==null){
+									return null;
+								}
 							}else if(se==0){
+								nlinhas = chave;
 							}else{
 								return null;
 							}
@@ -125,7 +131,7 @@ class Funcao{
 	}
 	public static Variavel[] selecao(int i,int f,String[] texto,Variavel[] vars){
 		int aux,nlinhas,chave;
-		int laco,se;
+		int laco=0,se = 0;
 		Variavelimite[] limite;
 		limite = new Variavelimite[2];
 		limite[0] = new Variavelimite();
@@ -211,14 +217,17 @@ class Funcao{
 							teste = linha.substring(limite[0].valor,limite[1].valor);
 							se = Compare.compara(teste,menu[3],vars);
 							chave = Agiliza.percore(texto,nlinhas);
-						if(se==1){
-							vars = Funcao.selecao(nlinhas,chave,texto,vars);
-							nlinhas = chave;
-						}else if(se==0){
-							nlinhas = chave;
-						}else{
-							return null;
-						}
+							if(se==1){
+								vars = Funcao.selecao(nlinhas,chave,texto,vars);
+								nlinhas = chave;
+								if(vars==null){
+									return null;
+								}
+							}else if(se==0){
+								nlinhas = chave;
+							}else{
+								return null;
+							}
 					}
 				}
 				if(menu[6].status){
