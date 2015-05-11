@@ -22,6 +22,11 @@ class Calculos{
 		resul = a * b;
 		return resul;
 	}
+	public static double mod(double a,double b){
+		double result;
+		result = a % b;
+		return result;
+	}
 	public static boolean diferente(double a,double b){
 		if(a!=b){
 			return true;

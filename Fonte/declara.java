@@ -34,7 +34,9 @@ class Declara{
 		i = new Variavel();
 		String teste,var=null;
 		aux = s.length();
-		aux-=1;
+		if(aux>1){
+			aux-=1;
+		}
 		var = Agiliza.decrescente(s,0,aux);
 		var = Agiliza.testanome(var);
 		if(var==null){
@@ -59,7 +61,9 @@ class Declara{
 		aux++;
 		valor = Agiliza.crescente(s,aux,s.length()-1);
 		aux = menu.indice;
-		aux-=1;
+		if(aux>1){
+			aux-=1;
+		}
 		var = Agiliza.decrescente(s,0,aux);
 		var = Agiliza.testanome(var);
 		if(var==null){

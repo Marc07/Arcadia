@@ -64,6 +64,8 @@ class Expressao{
 			res = Calculos.divi(x,y);
 		}else if(var.compareTo("*")==0){
 			res = Calculos.mult(x,y);
+		}else if(var.compareTo("%")==0){
+			res = Calculos.mod(x,y);
 		}else{
 			valor = "Expressão Ilegal na Linha"+"\n"+s+"\n"+"=> "+var;
 			JOptionPane.showMessageDialog (null, valor, "Erro!", JOptionPane.ERROR_MESSAGE);
