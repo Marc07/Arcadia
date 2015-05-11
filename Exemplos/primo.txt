@@ -3,14 +3,12 @@ vars div  = 2;
 vars rest = 0;
 vars teste;
 screin(teste = digite o numero a ser testado);
-screen(O valor de div é = div);
 select(teste>2){
 	loop(div<teste){
 		rest = teste%div;
 		select(rest==0){
 			cont = cont + 1;
 		}
-		screen(O valor de div é = div);
 		div = div + 1;
 	}
 }
