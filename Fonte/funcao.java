@@ -91,6 +91,13 @@ class Funcao{
 							}
 						}
 					}
+					if(menu[6].status){
+						teste = linha.substring(limite[0].valor,limite[1].valor);
+						vars = Tela.dialogbox(teste,menu[1],vars);
+						if(vars==null){
+							return null;
+						}
+					}
 				}
 				nlinhas++;
 				for(int count=0;count<menu.length;count++){
@@ -196,6 +203,13 @@ class Funcao{
 							return null;
 						}
 					}
+				}
+				if(menu[6].status){
+						teste = linha.substring(limite[0].valor,limite[1].valor);
+						vars = Tela.dialogbox(teste,menu[1],vars);
+						if(vars==null){
+							return null;
+						}
 				}
 			}
 			nlinhas++;
