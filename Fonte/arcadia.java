@@ -21,7 +21,7 @@ class Arcadia{
 		menu[5].setNome("select");
 		menu[6].setNome("screen");
 		Variavel[] vars;
-		vars = new Variavel[5];
+		vars = new Variavel[100];
 		Variavel inserir;
 		inserir = new Variavel();
 		String[] arquivo;
